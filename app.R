@@ -51,6 +51,14 @@ server <- function(input, output) {
  	})
 })
 
+	  output$downloadData <- downloadHandler(
+   filename = function() {
+     paste('data-', Sys.Date(), '.RData', sep='')
+   },
+   content = function(con) {
+    save(history_track, file=con)
+                           }
+ )
 
 })
 
@@ -92,7 +100,10 @@ calculating=textOutput('calculating'),
 
 # Plot number of cultures
 plotnumcultures=actionButton(inputId ='plot_numcultures',label='Plot Number of Cultures'),
-plot_num_cultures= plotOutput("plotnum_cultures" )
+plot_num_cultures= plotOutput("plotnum_cultures" ),
+
+downloadlink=downloadLink("downloadData", "Download Simulation")
+
 
 
 ))
