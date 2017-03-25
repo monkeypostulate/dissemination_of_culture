@@ -14,9 +14,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="keywords" content="Coffee Break Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/mystyle.css" rel='stylesheet' type='text/css' />
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <script src="js/jquery.min.js"></script>
+<script src="js/myfunctions.js"></script>
+
 <!---- start-smoth-scrolling---->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
@@ -34,12 +37,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--header-top-starts-->
 	<div class="header-top">
 		<div class="container">
-			<div class="head-main">
-				<a href="index.html"><img src="images/logo-1.png" alt="" /></a>
-			</div>
+	
 		</div>
 	</div>
 	<!--header-top-end-->
+		<div class="banner">
+		<div class="container">
+			<div class="banner-top">
 	<!--start-header-->
 	<div class="header">
 		<div class="container">
@@ -47,11 +51,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="navigation">
 				 <span class="menu"></span> 
 					<ul class="navig">
-							<li><a href="http://www.abelgabel.com"  class="active">Home</a></li>
-						<li><a href="http://www.abelgabel.com/tribute_game/index.html"> Introduction</a></li>
-						<li href="http://www.abelgabel.com/tribute_game/case_study.html"><a >Case Sutdy</a></li>
-						<li><a >Simulations</a></li>
-						<li><a href="http://www.abelgabel.com/tribute_game/r_code.html">R code</a></li>
+							<li><a href="http://www.abelgabel.com"  class="active">
+							<img src="images/book_apple.png" class="b-radius-top" style="height:30px">
+							Home</a></li>
+						<li><a href="http://www.abelgabel.com/tribute_game/index.html">
+						<img src="images/books.png" class="b-radius-top" style="height:30px"> Introduction</a></li>
+						<li href="http://www.abelgabel.com/tribute_game/case_study.html"><a >
+						<img src="images/books.png" class="b-radius-top" style="height:30px">
+						Case Sutdy</a></li>
+						<li><a >
+						<img src="images/pencil.png" class="b-radius-top" style="height:30px">
+						Simulations</a></li>
+						<li><a href="http://www.abelgabel.com/tribute_game/r_code.html">
+						<img src="images/pencil.png" class="b-radius-top" style="height:30px">R code</a></li>
 					
 					</ul>
 			</div>
@@ -70,13 +82,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</script>
 	<!-- script-for-menu -->
 	<!--banner-starts-->
-	<div class="banner">
-		<div class="container">
-			<div class="banner-top">
 				<div class="banner-text">
 					<h1>The dissemination of culture</h1>
-					   <h2>Run</h2>
-					{{startsimulations}}
+					   <h2>abelgabel</h2>
 					<div class="banner-btn">
 						
 					</div>
@@ -85,73 +93,81 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!--banner-end-->
-	{{calculating}}
 		<div class="container">
-						<h4>Parameters:	   </h4>
-					<ul  style=" list-style-type: none;  margisn: 0;paddinsg: 0;overflow: hidden;"> 
-  						<li style="float:left; text-align: center; padding: 16px;">  Number of Periods:  {{choose_periods}}
+						<div  class="bread-crumbs">
+						<ol class="breadcrumb">
+						<li> Parameters:	   </li>
+  						<li>  Number of Periods:   
+  						<input type="number" id="time" value=100 step=1 style="width:70px;">
 						</li>
-						<li style="float:left; text-align: center;padding: 16px;">  Number of Actors    {{choose_size}}   </li>
-						<li style="float:left; text-align: center;padding: 16px;">  Number of Features:  {{choose_attributes}}  </li>
-						<li style="float:left; text-align: center;padding: 16px;">  Number of Traits:  {{choose_traits}}  </li>
-					</ul>
-			</div>		
+						<li >  Number of Actors    <input type="number" id="size" value=10 step=1 style="width:70px;">   </li>
+						<li>  Number of Features:
+							<input type="number" id="attributes" value=2 step=1 style="width:70px;">     </li>
+						<li >  Number of Traits: 
+							<input type="number" id="traits" value=2 step=1 style="width:70px;">  
+							 </li>
+						<li> 			   <button onclick="runsimulation()" class="buttons">Simulations</button>  </li>
 
-		<div class="container">
-					<ul  style=" list-style-type: none;  margisn: 0;paddinsg: 0;overflow: hidden;"> 
-					</ul>
-			</div>	
-		<div class="container">
-						<h4>Network parameters:	   </h4>
-												{{choosegraph}} 
-
-					<ul  style=" list-style-type: none;  margisn: 0;paddinsg: 0;overflow: hidden;"> 
-  						<li style="float:left; text-align: center; padding: 16px;">  Lattice:  Dimension:  {{dimension}}
+					</ol>
+ <select id="selectmodel" onchange="choosemodel()" class="select_one">
+  <option value="Small World"> Small World network </option>
+  <option value="Scale Free"> Scale free network</option>
+  <option value="Lattice"> Lattice </option>
+</select>
+						<ol class="breadcrumb">
+<li>Parameters: </li>
+						<span id="swparameter" >
+						<li>  Neighbourhood: 
+						 <input type="number" id="neighbour" value=2 step=1 min=1 max=4 style="width:70px;">     
+						  &ensp;
+						  Rewiring probability:
+							   <input type="number" id="probability" value=.1 step=0.05 min=0 max=1 style="width:70px;">
+							</li>
+						</span>
+			 <span id="sfreeparameter"  class="hidenparameter">
+			 				<li>   Power: 
+			 						 <input type="number" id="power" value=1.1 step=0.1 min=1 max=4 style="width:70px;">
+			 						 &ensp; 
+			 				   Edges added in each time step: 
+						<input type="number" id="newnodes" value=3 step=1 min=2 max=4  style="width:70px;">   </li>
+						</span>
+			<span id="latticeparameter" class="hidenparameter">    
+	<li>  Lattice:  Dimension: 
+	 <input type="number" id="dimension" value=1 step=1 min=1 max=2  style="width:70px;"> 
 						</li> 
-						</ul>
-						<ul  style=" list-style-type: none;  margisn: 0;paddinsg: 0;overflow: hidden;"> 
-						<li style="float:left; text-align: center; padding: 16px;">  Small world network: Each  nodes is connected to  its {{neighbour}}- nearest neighbours on either side.   </li>
-						<li style="float:left; text-align: center;padding: 16px;">   Rewiring probability:  {{probability}}  </li>
-						</ul>
-					<ul  style=" list-style-type: none;  margisn: 0;paddinsg: 0;overflow: hidden;"> 
-						<li style="float:left; text-align: center; padding: 16px;">  Preferential attachment:   Power:  {{power}}  </li>
-						<li style="float:left; text-align: center;padding: 16px;">   Edges added in each time step:  {{n_new_nodes}}  </li>
-					</ul>
-							</div>				
-
-
+						</span>
+					</ol>
+						</div>				
 
 
 
 	<!--welcome-starts-->
-	<div class="welcome">
 		<div class="container">
 			<div class="welcome-top heading">
 				<h3>Network</h3>
-				<div class="welcome-bottom" >		
-						<ul  style=" list-style-type: none;  margisn: 0;paddinsg: 0;overflow: hidden;" > 
-						<li style="float:left; text-align: center; padding: 16px;">  Period:	{{choose_period_network}}   </li>
-					<li style="float:left; text-align: center; padding: 16px;">  Node size	{{choose_node_size}}</li>
-					<li style="float:left; text-align: center; padding: 16px;">
-						{{plotsimulations}} </li> </ul>
+				<div style="widht:50%; float:left">
                           {{plot_network}}  
-                      	</div>
-			</div>
-		</div>
-	</div>
- 
-	<!--welcome-end-->
-	<div class="welcome">
-		<div class="container">
-			<div class="welcome-top heading">
-				<h3>Initial Condition</h3>
-				<div class="welcome-bottom" align="center">		
+                          </div>		
+                    <div style="widht:40%; float:right;">
+                          	{{plot_network_period1}}
+                          	</div>
+                          	<br style="clear:both;"/>
 
-                          {{plot_network_period1}}  
-</div>
-	 </div>
-	 </div>
-	 </div>
+    <ol class="breadcrumb">
+						<li>  Period:	
+						<input type="number" id="time_plot" value=5 step=1 min=1 max=500 style="width:70px;">
+						  </li>
+					<li>  Node size:
+						<input type="number" id="node_size" value=10 step=.5 min=0.5 max=20 style="width:70px;">
+						</li>
+					<li>
+						  <button onclick="plotnet()" class="buttons">Plot Network</button></li> </ol>
+	
+								</div>
+			
+		</div>
+ 
+
 	
  
  <!--welcome-end-->
@@ -160,7 +176,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="welcome-top heading">
 				<h3> Number of Cultures</h3>
 				<div class="welcome-bottom" align="center">		
- {{plotnumcultures}}
+ 						   <button onclick="plotnumcult()" class="buttons">Simulations</button> 
                           {{plot_num_cultures}}  
 </div>
 	 </div>
@@ -177,10 +193,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!--footer-end-->
-	
+	 
+	 <script>  
+	 var simulation=1;
+	 var plotnetwork=1;
+	 var plotnumcults=1;
+	     var distribution_chosen = document.getElementById("selectmodel").value;
+      	 	 Shiny.onInputChange("selectmodel", selectmodel);  
+      	 	 Shiny.onInputChange("time", time);  
+      	 	 Shiny.onInputChange("size", size);  
+      	 	 Shiny.onInputChange("attributes", attributes);  
+      	 	 Shiny.onInputChange("traits", traits);  
+
+      	 	 Shiny.onInputChange("neighbour", traits);  
+      	 	 Shiny.onInputChange("probability", traits);  
+      	 	 Shiny.onInputChange("power", traits);  
+      	 	 Shiny.onInputChange("newnodes", traits);  
+      	 	 Shiny.onInputChange("dimension", traits);  
+      	 	 Shiny.onInputChange("time_plot", time_plot);  
+      	 	 Shiny.onInputChange("node_size", node_size);  
+      	 	       
+    
+ </script>
 	
 	<!-- Google analytics -->
-<	<script>
+	<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

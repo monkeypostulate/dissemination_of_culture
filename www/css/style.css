@@ -91,12 +91,12 @@ ul.navig li {
 }
 ul.navig li a {
     font-size: 1.07em;
-    color: #3d1a1b;
+    color: #fff;
     text-decoration: none;
     padding-right: 30px;
 }
 ul.navig li a:hover{
-	color:#999;
+	color:#F19D4D;
 }
 ul.navig li a:hover ul.navig li a:after{
 	display: block;
@@ -149,7 +149,7 @@ ul.navig {
     text-align: center;
     top: 143%;
     left: 2%;
-    background: #3d1a1b;
+    background: #4484CE;
 }
 .navigation {
     height: 20px;
@@ -237,8 +237,14 @@ ul.navig li a.active{
 /*--Header-Ends--*/
 /*--banner-starts--*/
 .banner-top{
-	background:url(../images/banner.jpg) no-repeat;
+	background:url(../images/banner.jpg);
+	 background-attachment: fixed;
 	min-height:600px;
+	    background-position: center;
+
+	    background-size: cover;
+	    
+	object-fit: contain;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -394,7 +400,7 @@ ul.navig li a.active{
 .abt-left h3{
 	font-size: 23px;
 	margin: 10px 0 0 0;
-	color: #212121;
+	color: #4484CE;
 }
 .abt-left h3 a{
 	color: #3d1a1b;
@@ -546,9 +552,9 @@ ul.navig li a.active{
 }
 .heading h3 {
 	color: #fff;
-	background: #190608;
+	background: #4484CE;
 	padding: 9px 0px;
-	border: 1px solid #190608;
+	border: 1px solid #D9D9D9;
 	font-size: 15px;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -847,7 +853,7 @@ h3.ghj {
 .da-thumbs li {
 	float: left;
 	margin: 0.4%;
-	background: #EFEFEF;
+	background: #D9D9D9;
 	padding: 8px;
 	position: relative;
 	box-shadow: 0 1px 3px rgba(231, 231, 231, 0.43);
@@ -869,7 +875,7 @@ h3.ghj {
 }
 .da-thumbs li a div {
   position: absolute;
-  background: rgba(25, 6, 8, 0.9);
+  background: rgba(241, 159, 77, 0.9);
   width: 100%;
   height: 100%;
 }
@@ -952,7 +958,7 @@ h3.ghj {
 .single-grid h4{
 	font-size: 18px;
     margin: 20px 0 0 0;
-    color: #212121;
+    color: #4484CE;
 }
 .single-grid h4 a{
 	color:#000000;
@@ -962,9 +968,9 @@ h3.ghj {
 	color:#a1cd3d;
 }
 .single-grid p {
-	font-size: 14px;
+	font-size: 18px;
     font-family: 'Raleway-Regular';
-    color: #999;
+    color: #000;
     line-height: 1.8em;
     margin-top: 1.5%;
 }
@@ -994,7 +1000,7 @@ ul.blog-ic li a:hover{
 h4.media-heading {
     font-size: 18px;
     margin: 0px 0 7px 0;
-    color: #212121;
+    color: #4484CE;
 }
 .media-body p {
     font-size: 14px;

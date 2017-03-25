@@ -30,6 +30,7 @@ labels_actors<-list()
 
 n_agents<-length(history[[1]]$actors)
 
+  withProgress(message = 'Simulation running', value = 0, min=0, max=1, {
 for(time_c in 1:time_t){
 labels_actors[[time_c]]<-1: n_agents
 time_plot<-1: time_t		
@@ -45,8 +46,11 @@ for(i in 1: n_agents){
 }}
 different_c[time_c]<-length(unique(labels_actors[[time_c]]))
 
-#}
+percentage<-round(time_c/time_t,1)
+incProgress(amount=percentage, detail = paste("Progress", percentage))
+
 }
+})
 
 time_plot<-time_plot[different_c!=0]
 different_c <-different_c[different_c!=0]
